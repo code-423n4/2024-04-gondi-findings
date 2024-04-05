@@ -1,6 +1,6 @@
 # Gondi Audit
 
-Unless otherwise discussed, this repo will be made public after audit completion, sponsor review, judging, and issue mitigation window.
+Unless otherwise discussed, this repo will be made public after audit completion, sponsor review, judging, and issue mitigation window.c
 
 **Contributors to this repo:** prior to report publication, please review the [Agreements & Disclosures](https://github.com/code-423n4/2024-04-gondi-findings/issues/1) issue.
 
