@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "minhquanym",
+  "risk": "3",
+  "title": "Function `refinanceFromLoanExecutionData()` does not check `executionData.tokenId == loan.nftCollateralTokenId`",
+  "issueId": 54,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/54"
+}
