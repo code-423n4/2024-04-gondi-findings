@@ -195,3 +195,48 @@ In src/lib/AuctionLoanLiquidator.sol, placeBid() contains [duplicated checks](ht
 (https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionLoanLiquidator.sol#L230C1-L232C10)
 Recommendations:
 Delete duplicated checks.
+
+### Low-13 Liquidation Auction might be carried out indefinitely exceeding infinitely beyond expiration timestamp 
+**Instances(1)**
+In src/lib/AuctionLoanLiquidator.sol, max time is used as the liquidation auction deadline, however, max time can be extended to indefinitely long, much exceeding a pre-set expiration timestamp.
+
+This is because `withMargin` allows the max time to be calculated purely based on lastBidTime (`uint96 withMargin = _auction.lastBidTime + _MIN_NO_ACTION_MARGIN;`). 
+And if withMargin > expiration, withMargin will be used as max time.
+```solidity
+    function placeBid(
+        address _nftAddress,
+        uint256 _tokenId,
+        Auction memory _auction,
+        uint256 _bid
+    ) external nonReentrant returns (Auction memory) {
+...
+        uint96 expiration = _auction.startTime + _auction.duration;
+        uint96 withMargin = _auction.lastBidTime + _MIN_NO_ACTION_MARGIN;
+ |>     uint96 max = withMargin > expiration ? withMargin : expiration;
+        if (max < currentTime && currentHighestBid > 0) {
+            revert AuctionOverError(max);
+        }
+...
+```
+(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionLoanLiquidator.sol#L237-L238)
+
+Even though bid is ensured to be higher, thus increasing with time but the initial bid can be low enough such that, a liquidation auction cannot be settled for a prolonged period of time.
+
+Recommendations:
+Consider enforcing expiration timestamp as max time when the highest bid is satisfactory, such that the auction can be settled without unknown duration of delay.
+
+### Low-14  When a loan contains more than one tranches from the main lender, `settleWithBuyout()` is likely to revert due to main lender transferFrom to self
+**Instances(1)**
+In src/lib/AuctionWithBuyoutLoanLiquidator.sol, settleWithBuyout() will [transfer assets to other tranches lender(thisTranche.lender) in a for-loop](https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionWithBuyoutLoanLiquidator.sol#L89). 
+
+However, it's not checked that thisTranche.lender != main lender (msg.sender). This means that if more than one tranches from the loan are from the main lender(msg.sender)(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionWithBuyoutLoanLiquidator.sol#L78), `asset.safeTransferFrom(msg.sender, thisTranche.lender, owed)` might revert due to the requirement for self-approval. 
+
+Recommendations:
+Add checks that `if (msg.sender != thiTranche.lender){//asset.safeTransferFrom}`
+
+
+
+
+
+
+
