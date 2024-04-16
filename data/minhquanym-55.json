@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "Function `settleWithBuyout()` incorrectly calculate the main lender because single lender can have multiple tranches in a loan",
+  "issueId": 55,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/55"
+}
