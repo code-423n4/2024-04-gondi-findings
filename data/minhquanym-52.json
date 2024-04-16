@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "minhquanym",
+  "risk": "3",
+  "title": "Attacker could exploit function `addNewTranche()` to increase principal amount without borrower's permission",
+  "issueId": 52,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/52"
+}
