@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "The `getMaxTranches` check can be bypassed",
+  "issueId": 66,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/66"
+}
