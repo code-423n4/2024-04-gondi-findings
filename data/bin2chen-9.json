@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "bin2chen",
+  "risk": "3",
+  "title": "settleWithBuyout() lack of call LoanManager.loanRepayment()",
+  "issueId": 9,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/9"
+}
