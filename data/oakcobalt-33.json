@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "oakcobalt",
+  "risk": "3",
+  "title": "Incorrect protocol fee implementation results in outstandingValues to be mis-accounted in Pool.sol",
+  "issueId": 33,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/33"
+}
