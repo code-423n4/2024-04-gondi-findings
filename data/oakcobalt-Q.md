@@ -234,6 +234,12 @@ However, it's not checked that thisTranche.lender != main lender (msg.sender). T
 Recommendations:
 Add checks that `if (msg.sender != thiTranche.lender){//asset.safeTransferFrom}`
 
+### Low-15 Collected fees are locked in the contract due to no sweeping or claiming methods
+**Instances(1)**
+In src/lib/pools/Pool.sol, fees are collected during loan [repayments](https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/pools/Pool.sol#L444) or loan [liquidation](https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/pools/Pool.sol#L461) flows and added to `uint256 public getCollectedFees;`. However, there are no methods to collect these fees, causing fees to be locked.
+
+Recommendations:
+Add a method to claim `getCollectedFees`.
 
 
 
