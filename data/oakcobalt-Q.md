@@ -176,3 +176,22 @@ In src/lib/pools/Pool.sol, deployWithdrawalQueue() comments contains a typo: out
 Recommendations:
 Correct the typo.
 
+### Low-12 Unnecessary code - duplicated checks in placeBid()
+**Instances(1)**
+In src/lib/AuctionLoanLiquidator.sol, placeBid() contains [duplicated checks](https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionLoanLiquidator.sol#L230-L231) that are already [performed in  _placeBidChecks() hooks](https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionLoanLiquidator.sol#L332-L333).
+
+```solidity
+    function placeBid(address _nftAddress, uint256 _tokenId, Auction memory _auction, uint256 _bid)
+        external
+        nonReentrant
+        returns (Auction memory)
+    {
+...
+|>        if (_bid == 0 || (currentHighestBid.mulDivDown(_BPS + MIN_INCREMENT_BPS, _BPS) >= _bid)) {
+            revert MinBidError(_bid);
+        }
+
+```
+(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionLoanLiquidator.sol#L230C1-L232C10)
+Recommendations:
+Delete duplicated checks.
