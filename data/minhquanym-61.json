@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "Attacker can set arbitrary allocator in case `cachedAllocator == address(0)`",
+  "issueId": 61,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/61"
+}
