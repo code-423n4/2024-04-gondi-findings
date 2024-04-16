@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "oakcobalt",
+  "risk": "3",
+  "title": "Target idle amount is incorrect in validateOffer flow, which can result in insufficient liquid asset in pool ",
+  "issueId": 42,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/42"
+}
