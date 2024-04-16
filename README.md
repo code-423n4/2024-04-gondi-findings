@@ -36,7 +36,7 @@ Note: It’s important to be sure to **only review issues from the curated lists
 
 <hr>
 <details>
-<summary>     <h2>Types of findings</h2> (expand to read more)</summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2>Types of findings</h2> (expand to read more)</summary>
 
 ### High or Medium risk findings
 
