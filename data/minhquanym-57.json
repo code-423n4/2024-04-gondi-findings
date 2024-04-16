@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "Spam function `refinancePartial()` could DOS refinance by passing empty `_renegotiationOffer.trancheIndex` list",
+  "issueId": 57,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/57"
+}
