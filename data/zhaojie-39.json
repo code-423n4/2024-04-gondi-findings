@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "zhaojie",
+  "risk": "2",
+  "title": "In WithdrawalQueue, the user may not be able to withdraw token",
+  "issueId": 39,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/39"
+}
