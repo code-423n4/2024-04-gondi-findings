@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "bin2chen",
+  "risk": "3",
+  "title": "refinanceFull/addNewTranche reusing a lender's signature leads to unintended behavior",
+  "issueId": 13,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/13"
+}
