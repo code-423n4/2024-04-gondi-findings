@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Invalid maxTranches check can result in maxTranche cap to be exceeded",
+  "issueId": 80,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/80"
+}
