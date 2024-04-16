@@ -103,3 +103,34 @@ When _callers.length < getPendingAcceptedCallers. length, some pending callers a
 Recommendations:
 Consider adding a check to ensure _callers.length == getPendingAcceptedCallers.length.
 
+### Low-07 Consider resetting getPendingAcceptedCallersSetTime to max after adding callers.
+**Instances(1)**
+Current two-step addCallers flow [will not reset getPendingAcceptedCallersSetTime back to `type(uint256).max`](https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/loans/LoanManager.sol#L96).
+
+In addCallers(), at the end of the call, consider resetting getPendingAcceptedCallersSetTime to `type(uint256).max` to prevent resetting the same caller multiple times.
+
+Recommendations:
+consider resetting getPendingAcceptedCallersSetTime to `type(uint256).max` at the end of addCallers().
+
+### Low-08 Unused imports 
+**Instances(3)**
+(1)
+src/lib/LiquidationDistributor.sol
+```
+import "./loans/WithLoanManagers.sol";
+```
+(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/LiquidationDistributor.sol#L13)
+(2)
+src/lib/loans/BaseLoan.sol
+```
+import "./WithLoanManagers.sol";
+```
+(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/loans/BaseLoan.sol#L15)
+(3)
+src/lib/utils/WithProtocolFee.sol
+```
+import "../loans/WithLoanManagers.sol";
+```
+(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/utils/WithProtocolFee.sol#L7C1-L7C40)
+Recommendations:
+Remove unused imports
