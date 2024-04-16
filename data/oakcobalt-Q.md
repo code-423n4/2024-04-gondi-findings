@@ -134,3 +134,45 @@ import "../loans/WithLoanManagers.sol";
 (https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/utils/WithProtocolFee.sol#L7C1-L7C40)
 Recommendations:
 Remove unused imports
+
+### Low-09 baseInterestAllocator risks being set as a malicious contract address due to vuln. implementations.
+**Instances(1)**
+In src/lib/pools/Pool.sol, setting `getBaseInterestAllocator` address with confirmBaseInterestAllocator() is not access-controlled and can be set to any address if current `getBaseInterestAllocator` is 0 value.
+
+This requires `confirmBaseInterestAllocator()` to be called atomically with contract deployment to prevent malicious front-running and setting a malicious `getBaseInterestAllocator` address.
+
+Recommendations:
+Either consider setting `getBaseInterestAllocator` in the constructor to prevent malicious front-running.
+
+### Low-10 Incorrect comments - netPoolFraction is in PRINCIPAL_PRECISION, not bps.
+**Instances(1)**
+In src/lib/pools/Pool.sol, code comments says struct QueueAccounting.netPoolFraction is in bps precision. This is incorrect, netPoolFraction and thisQueueFraction are both in PRINCIPAL_PRECISION.
+
+```solidity
+//src/lib/pools/Pool.sol
+    /// @param thisQueueFraction Fraction of this queue in `PRINCIPAL_PRECISION`
+    /// @param netPoolFraction Fraction that still goes to the pool on repayments/liquidations in bps`. //@audit netPoolFraction is in `PRINCIPAL_PRECISION`, not bps
+    struct QueueAccounting {
+        uint128 thisQueueFraction;
+        uint128 netPoolFraction;
+    }
+
+```
+(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/pools/Pool.sol#L68)
+
+Recommendations:
+Change the code comments.
+
+### Low-11 Typos
+**Instances(1)**
+In src/lib/pools/Pool.sol, deployWithdrawalQueue() comments contains a typo: outsanding -> outstanding.
+```solidity
+   function deployWithdrawalQueue() external nonReentrant {
+   ...
+           //@audit  Typo - outstaning -> outstanding
+        /// @dev We move outstaning values from the pool to the queue that was just deployed.
+```
+(https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/pools/Pool.sol#L375)
+Recommendations:
+Correct the typo.
+
