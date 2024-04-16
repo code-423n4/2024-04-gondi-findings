@@ -53,3 +53,36 @@ As `_pendingMultiSourceLoanAddress` becomes `address(0)`, then there is no need 
         emit MultiSourceLoanUpdated(_pendingMultiSourceLoanAddress);  // should be address(0)
     }
 ```
+
+# [G-04] Redundant code
+
+In `AuctionLoanLiquidator::placeBid`, the check for the increment of the highest bid is repeated as it is done already in the `_placeBidChecks` method. Consider removing the one within the function ([link](https://github.com/code-423n4/2024-04-gondi/blob/b9863d73c08fcdd2337dc80a8b5e0917e18b036c/src/lib/AuctionLoanLiquidator.sol#L229C1-L232C10)):
+
+```solidity
+    /// @inheritdoc IAuctionLoanLiquidator
+    function placeBid(address _nftAddress, uint256 _tokenId, Auction memory _auction, uint256 _bid)
+        external
+        nonReentrant
+        returns (Auction memory)
+    {
+        _placeBidChecks(_nftAddress, _tokenId, _auction, _bid);
+         
+        // @audit already done in _placeBidChecks
+        uint256 currentHighestBid = _auction.highestBid;
+        if (_bid == 0 || (currentHighestBid.mulDivDown(_BPS + MIN_INCREMENT_BPS, _BPS) >= _bid)) {
+            revert MinBidError(_bid);
+        }
+
+        ...
+
+    function _placeBidChecks(address _nftAddress, uint256 _tokenId, Auction memory _auction, uint256 _bid)
+        internal
+        view
+        virtual
+    {
+        _checkAuction(_nftAddress, _tokenId, _auction);
+        if (_bid == 0 || (_auction.highestBid.mulDivDown(_BPS + MIN_INCREMENT_BPS, _BPS) >= _bid)) {
+            revert MinBidError(_bid);
+        }
+    }
+```
