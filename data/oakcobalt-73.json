@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Lender can refinance a worse loan for the borrower through addNewTranche, due to missing checks",
+  "issueId": 73,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/73"
+}
