@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "bin2chen",
+  "risk": "3",
+  "title": "_processOffersFromExecutionData() lack of check  executionData.duration<=offer.duration",
+  "issueId": 28,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/28"
+}
