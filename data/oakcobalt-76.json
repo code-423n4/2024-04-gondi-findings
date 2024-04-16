@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "A malicious user can take on a loan using an existing borrower's collateral in refinanceFromLoanExecutionData()",
+  "issueId": 76,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/76"
+}
