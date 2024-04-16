@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "minhquanym",
+  "risk": "3",
+  "title": "Function `Pool.validateOffer()` does not work correctly in case `principalAmount > currentBalance`",
+  "issueId": 63,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/63"
+}
