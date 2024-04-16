@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "bin2chen",
+  "risk": "3",
+  "title": "mergeTranches() If the lender is a LoanManager it will break the Pool accounting",
+  "issueId": 12,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/12"
+}
