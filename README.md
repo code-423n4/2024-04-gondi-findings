@@ -46,8 +46,8 @@ Wardens submit issues without seeing each other's submissions, so keep in mind t
 
 Any warden submissions in these three categories are submitted as bulk listings of issues and recommendations:
 
-- **[QA reports](https://docs.code4rena.com/roles/wardens/judging-criteria#qa-reports-low-non-critical)** include *all* low severity and non-critical findings from an individual warden.
-- **[Gas reports](https://docs.code4rena.com/roles/wardens/judging-criteria#gas-reports)** include *all* gas optimization recommendations from an individual warden.
+- **[QA reports](https://docs.code4rena.com/awarding/judging-criteria#qa-reports-low-non-critical)** include *all* low severity and non-critical findings from an individual warden.
+- **[Gas reports](https://docs.code4rena.com/awarding/judging-criteria#gas-reports)** include *all* gas optimization recommendations from an individual warden.
 - **[Analyses](https://docs.code4rena.com/roles/sponsors#analysis-pool)** contain high-level advice and review of the code: the "forest" to individual findings' "trees.”
 </details>
 <hr>
