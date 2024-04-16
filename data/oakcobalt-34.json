@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Racing condition between settleAuction and placeBid might allow previous highest bidder to prevent others to bid",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/34"
+}
