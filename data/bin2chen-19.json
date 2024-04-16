@@ -1,0 +1,8 @@
+{
+  "contest": 361,
+  "handle": "bin2chen",
+  "risk": "3",
+  "title": "_updatePendingWithdrawalWithQueue() should accumulate pendingForQueue",
+  "issueId": 19,
+  "issueUrl": "https://github.com/code-423n4/2024-04-gondi-findings/issues/19"
+}
